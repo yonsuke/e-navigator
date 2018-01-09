@@ -7,28 +7,28 @@
     <%= f.label :name, '氏名' %><br />
     <%= f.text_field :name, autocomplete: "name", autofocus: true %>
   </div>
-
+  <br />
   <div class="field">
     <%= f.label :birthdate, '生年月日' %><br />
     <%= f.date_field :birthdate %>
   </div>
-
+  <br />
   <div class="field">
     <%= f.label :gender, '性別' %><br />
     <label><%= f.radio_button :gender, 'male', class: :gender %>男性</label>
     <label><%= f.radio_button :gender, 'female', class: :gender %>女性</label>
   </div>
-
+  <br />
   <div class="field">
     <%= f.label :school, '学校名' %><br />
     <%= f.text_field :school %>
   </div>
-
+  <br />
   <div class="field">
     <%= f.label :email, 'メールアドレス' %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
-
+  <br />
   <div class="field">
     <%= f.label :password, 'パスワード' %>
     <% if @minimum_password_length %>
@@ -36,15 +36,15 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
-
+  <br />
   <div class="field">
     <%= f.label :password_confirmation, 'パスワード（確認）' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  <br />
   <div class="actions">
     <%= f.submit "登録" %>
   </div>
 <% end %>
-
+<br />
 <%= render "devise/shared/links" %>
