@@ -35,6 +35,9 @@ gem 'devise'
 # Use Bootstrap
 gem 'bootstrap-sass'
 
+# Use devise-i18n for translate devise into Japanese
+gem 'devise-i18n'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
