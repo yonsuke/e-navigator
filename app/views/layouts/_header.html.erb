@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "e-Navigator", root_path, id: "logo" %>
+    <% if user_signed_in? %>
+      <nav>
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to "プロフィール", edit_user_registration_path %></li>
+          <li><%= link_to "自分の面接一覧", '#' %></li>
+          <li><%= link_to "メール", '#' %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </nav>
+    <% end %>
+  </div>
+</header>
