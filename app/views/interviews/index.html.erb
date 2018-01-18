@@ -12,3 +12,11 @@
     <%= render partial: 'interview', collection: @interviews %>
   </tbody>
 </table>
+
+<div class="row">
+  <div class="col-sm-10">
+  </div>
+  <div class="col-sm-2">
+    <%= button_to '候補日追加', new_user_interview_path, method: :get, class: "btn btn-primary" %>
+  </div>
+</div>
