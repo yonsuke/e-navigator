@@ -1,2 +1,14 @@
-<h1>Interviews#index</h1>
-<p>Find me in app/views/interviews/index.html.erb</p>
+<h1><%= current_user.name %>さんの面接一覧</h1>
+
+<table class="table table-bordered table-hover table-striped table-condensed text-center">
+  <thead>
+    <tr>
+      <th class="text-center">面接開始時間</th>
+      <th class="text-center">承認状態</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'interview', collection: @interviews %>
+  </tbody>
+</table>
