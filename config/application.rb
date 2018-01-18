@@ -30,5 +30,8 @@ module ENavigator
 
     # Translate devise into Japanese
     config.i18n.default_locale = :ja
+
+    # Set time zone to Tokyo
+    config.time_zone = 'Tokyo'
   end
 end
