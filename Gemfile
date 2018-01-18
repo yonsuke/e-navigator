@@ -41,6 +41,9 @@ gem 'devise-i18n'
 # Use dotenv to set environment variables
 gem 'dotenv-rails'
 
+# Use enum_help for translate element of enum into Japanese
+gem 'enum_help'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
