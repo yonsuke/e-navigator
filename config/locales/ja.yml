@@ -16,6 +16,9 @@ ja:
         school: "学校名"
         email: "メールアドレス"
         password: "パスワード"
+      interview:
+        start_time: "開始時間"
+        status: "承認状態"
   date:
     abbr_day_names:
     - 日
