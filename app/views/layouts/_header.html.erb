@@ -5,7 +5,7 @@
       <nav>
         <ul class="nav navbar-nav navbar-left">
           <li><%= link_to "プロフィール", edit_user_registration_path %></li>
-          <li><%= link_to "自分の面接一覧", '#' %></li>
+          <li><%= link_to "自分の面接一覧", user_interviews_path(current_user.id) %></li>
           <li><%= link_to "メール", '#' %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

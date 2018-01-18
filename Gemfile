@@ -41,7 +41,7 @@ gem 'devise-i18n'
 # Use dotenv to set environment variables
 gem 'dotenv-rails'
 
-# Use enum_help for translate element of enum into Japanese
+# Use enum_help to translate elements of enum into Japanese
 gem 'enum_help'
 
 group :development, :test do
