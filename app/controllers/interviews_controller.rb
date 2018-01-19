@@ -21,6 +21,20 @@ class InterviewsController < ApplicationController
     end
   end
 
+  def edit
+    @interview = Interview.find(params[:id])
+  end
+
+  def update
+    @interview = Interview.find(params[:id])
+    if @interview.update_attributes(interview_params)
+      flash[:notice] = "面接候補日を更新しました"
+      redirect_to user_interviews_path
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def interview_params
