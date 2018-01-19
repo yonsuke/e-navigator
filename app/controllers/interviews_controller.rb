@@ -34,6 +34,12 @@ class InterviewsController < ApplicationController
     end
   end
 
+  def destroy
+    Interview.find(params[:id]).destroy
+    flash[:notice] = "面接候補日を削除しました"
+    redirect_to user_interviews_path
+  end
+
   private
 
     def interview_params
