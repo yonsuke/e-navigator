@@ -2,5 +2,5 @@
   <td><%= interview.start_time.strftime("%Y年%m月%d日(#{%w(日 月 火 水 木 金 土)[interview.start_time.wday]}) %H時%M分") %></td>
   <td><%= interview.status_i18n %></td>
   <td><%= button_to '編集', edit_user_interview_path(current_user.id, interview.id), method: :get, class: "btn btn-default", disabled: !interview.pending? %></td>
-  <td></td>
+  <td><%= button_to '削除', user_interview_path(current_user.id, interview.id), method: :delete, class: "btn btn-danger", disabled: !interview.pending? %></td>
 </tr>
