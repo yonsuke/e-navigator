@@ -16,8 +16,7 @@ class InterviewsController < ApplicationController
       flash[:notice] = "面接候補日を追加しました"
       redirect_to user_interviews_path
     else
-      @interviews = current_user.interviews
-      render '/interviews/new'
+      render 'new'
     end
   end
 
