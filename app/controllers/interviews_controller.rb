@@ -25,8 +25,7 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    @interview = Interview.find(params[:id])
-    if @interview.update_attributes(interview_params)
+    if Interview.find(params[:id]).update_attributes(interview_params)
       flash[:notice] = "面接候補日を更新しました"
       redirect_to user_interviews_path
     else
