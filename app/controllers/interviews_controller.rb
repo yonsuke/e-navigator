@@ -13,7 +13,7 @@ class InterviewsController < ApplicationController
   def create
     @interview = current_user.interviews.build(interview_params)
     if @interview.save
-      flash[:notice] = "面接候補日を追加しました"
+      flash[:notice] = "面談候補日を追加しました"
       redirect_to user_interviews_path
     else
       render 'new'
@@ -26,7 +26,7 @@ class InterviewsController < ApplicationController
 
   def update
     if Interview.find(params[:id]).update_attributes(interview_params)
-      flash[:notice] = "面接候補日を更新しました"
+      flash[:notice] = "面談候補日を更新しました"
       redirect_to user_interviews_path
     else
       render 'edit'
@@ -35,7 +35,7 @@ class InterviewsController < ApplicationController
 
   def destroy
     Interview.find(params[:id]).destroy
-    flash[:notice] = "面接候補日を削除しました"
+    flash[:notice] = "面談候補日を削除しました"
     redirect_to user_interviews_path
   end
 
