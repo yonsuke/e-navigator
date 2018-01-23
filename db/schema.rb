@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118044952) do
+ActiveRecord::Schema.define(version: 20180123141441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "interviews", force: :cascade do |t|
     t.datetime "start_time", null: false
-    t.integer "status", limit: 2, default: 0, null: false
+    t.integer "status", default: 0, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
