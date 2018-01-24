@@ -16,6 +16,9 @@ ja:
         school: "学校名"
         email: "メールアドレス"
         password: "パスワード"
+      interview:
+        start_time: "開始時間"
+        status: "承認状態"
   date:
     abbr_day_names:
     - 日
@@ -212,3 +215,9 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  enums:
+    interview:
+      status:
+        pending: 保留
+        approved: 承認
+        rejected: 却下
