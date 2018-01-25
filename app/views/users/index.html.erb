@@ -1,2 +1,22 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>ユーザー一覧</h1>
+
+<% if @users.any? %>
+  <table class="table table-bordered table-hover table-striped table-condensed text-center">
+    <thead>
+      <tr>
+        <th class="text-center">名前</th>
+        <th class="text-center">Email</th>
+        <th class="text-center">年齢</th>
+        <th class="text-center">性別</th>
+        <th class="text-center">学校名</th>
+        <th class="text-center">面接日時</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'user', collection: @users %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="alert alert alert-danger">他のユーザーが存在しません。</p>
+<% end %>
