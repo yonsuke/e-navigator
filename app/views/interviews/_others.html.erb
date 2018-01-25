@@ -5,10 +5,12 @@
   <p>面接が設定されていません。 </p>
 <% end %>
 <hr>
-<% if @interviews.any? %>
+<h3>その他の面接候補日</h3>
+<% not_approved_interviews = @interviews.where.not(status: :approved) %>
+<% if not_approved_interviews.any? %>
   <p>面接日程を変更する場合は以下から選んでください。</p>
-  <% @interviews.each do |interview| %>
-    <%= button_to interview_datetime(interview.start_time), '#', method: :get, class: "btn btn-primary" %>
+  <% not_approved_interviews.each do |interview| %>
+    <%= button_to interview_datetime(interview.start_time), user_interview_path(interview.user_id, interview.id), method: :patch, class: "btn btn-primary" %>
     <br />
   <% end %>
 <% else %>
