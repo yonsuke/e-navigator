@@ -1,0 +1,3 @@
+<p><strong>開始時間：</strong><%= interview_datetime(@interview.start_time) %></p>
+<p><strong>承認状態：</strong><%= @interview.status_i18n %></p>
+<%= button_to "面談一覧", user_interviews_path, method: :get, class: "btn btn-primary" %>
