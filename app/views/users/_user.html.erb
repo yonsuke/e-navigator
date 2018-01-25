@@ -4,6 +4,6 @@
   <td><%= user.age %></td>
   <td><%= user.gender_i18n %></td>
   <td><%= user.school %></td>
-  <td><%= user.interviews.approved.first.start_time.strftime("%Y年%m月%d日(#{%w(日 月 火 水 木 金 土)[user.interviews.approved.first.start_time.wday]}) %H時%M分") if user.interviews.approved.count > 0 %></td>
+  <td><%= interview_datetime(user.interviews.approved.first.start_time) if user.interviews.approved.count > 0 %></td>
   <td><%= button_to '面接一覧', user_interviews_path(user.id), method: :get, class: "btn btn-default" %></td>
 </tr>
