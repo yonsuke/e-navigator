@@ -2,8 +2,8 @@ class InterviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = current_user
-    @interviews = current_user.interviews
+    @user = User.find(params[:user_id])
+    @interviews = @user.interviews
   end
 
   def new
