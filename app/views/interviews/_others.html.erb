@@ -1,0 +1,18 @@
+<h3>現在の面談日程</h3>
+<% if @interviews.approved.any? %>
+  <p><strong><%= interview_datetime(@interviews.approved.first.start_time) %></strong>に面談が設定されています。</p>
+<% else %>
+  <p>面談が設定されていません。 </p>
+<% end %>
+<hr>
+<h3>その他の面談候補日</h3>
+<% not_approved_interviews = @interviews.where.not(status: :approved) %>
+<% if not_approved_interviews.any? %>
+  <p>面談日程を変更する場合は以下から選んでください。</p>
+  <% not_approved_interviews.each do |interview| %>
+    <%= button_to interview_datetime(interview.start_time), user_interview_path(interview.user_id, interview.id), method: :patch, class: "btn btn-primary", data: { confirm: "#{interview_datetime(interview.start_time)}で面談を確定してよろしいですか？" } %>
+    <br />
+  <% end %>
+<% else %>
+  <p>面談候補日が登録されていません。</p>
+<% end %>

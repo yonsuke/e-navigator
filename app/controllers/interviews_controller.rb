@@ -2,8 +2,8 @@ class InterviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = current_user
-    @interviews = current_user.interviews
+    @user = User.find(params[:user_id])
+    @interviews = @user.interviews
   end
 
   def new
@@ -13,8 +13,8 @@ class InterviewsController < ApplicationController
   def create
     @interview = current_user.interviews.build(interview_params)
     if @interview.save
-      flash[:notice] = "面談候補日を追加しました"
-      redirect_to user_interviews_path
+      flash.now[:notice] = "面談候補日を追加しました"
+      render 'show'
     else
       render 'new'
     end
@@ -26,11 +26,19 @@ class InterviewsController < ApplicationController
 
   def update
     @interview = Interview.find(params[:id])
-    if @interview.update_attributes(interview_params)
-      flash[:notice] = "面談候補日を更新しました"
-      redirect_to user_interviews_path
+    user_id = @interview.user_id
+    if user_id == current_user.id
+      if @interview.update_attributes(interview_params)
+        flash.now[:notice] = "面談候補日を更新しました"
+        render 'show'
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      interviews = Interview.where(user_id: user_id).update_all(status: :rejected)
+      @interview.approved!
+      flash.now[:notice] = "面談日を設定しました"
+      render 'show'
     end
   end
 

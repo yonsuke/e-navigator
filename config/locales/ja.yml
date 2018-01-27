@@ -221,3 +221,7 @@ ja:
         pending: 保留
         approved: 承認
         rejected: 却下
+    user:
+      gender:
+        male: 男性
+        female: 女性

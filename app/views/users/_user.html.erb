@@ -1,0 +1,9 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.age %></td>
+  <td><%= user.gender_i18n %></td>
+  <td><%= user.school %></td>
+  <td><%= interview_datetime(user.interviews.approved.first.start_time) if user.interviews.approved.any? %></td>
+  <td><%= button_to '面談一覧', user_interviews_path(user.id), method: :get, class: "btn btn-default" %></td>
+</tr>

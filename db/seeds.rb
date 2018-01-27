@@ -1,6 +1,6 @@
 # ユーザー
 5.times do |n|
-  email = "#{n + 1}@test.com"
+  email = "#{n + 1}@example.com"
   password = "password"
   name  = "ユーザー#{n + 1}"
   birthdate = "199#{n}-10-2#{n}"
