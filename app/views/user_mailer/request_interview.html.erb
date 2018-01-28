@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <!-- 既存システムとの連結までcurrent_userを固定で設定しておく -->
+    <% current_user = User.find(2) %>
+    
+    <% url = user_interviews_url(current_user.id) %>
+
+    <p><%= current_user.name %>さんの面談希望日が決定しました。</p>
+    <p>以下のURLから、面談日時の承認をお願いします。</p>
+    <p><%= link_to url, url %></p>
+  </body>
+</html>

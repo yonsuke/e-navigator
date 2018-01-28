@@ -1,0 +1,6 @@
+<!-- 既存システムとの連結までcurrent_userを固定で設定しておく -->
+<% current_user = User.find(2) %>
+
+<%= current_user.name %>さんの面談希望日が決定しました。
+以下のURLから、面談日時の承認をお願いします。
+<%= user_interviews_url(current_user.id) %>
