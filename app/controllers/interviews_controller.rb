@@ -38,6 +38,7 @@ class InterviewsController < ApplicationController
     else
       interviews = Interview.where(user_id: user_id).update_all(status: :rejected)
       @interview.approved!
+      UserMailer.approve_interview(User.find(user_id), current_user).deliver
       flash.now[:notice] = "面談日を設定しました"
       render 'show'
     end
