@@ -18,7 +18,7 @@ class UserMailer < ApplicationMailer
     @interview = Interview.find_by(user_id: to_user.id, status: :approved)
 
     mail(
-      to: to_user.email,
+      to: [to_user.email, from_user.email],
       subject: '面談日時が確定しました'
     ) do |format|
       format.html
