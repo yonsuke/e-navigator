@@ -4,7 +4,7 @@ class InterviewsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @interviews = @user.interviews
-    @users_emails = User.where.not(id: current_user.id).pluck(:email)
+    @users_emails = User.where.not(id: current_user.id).order(:id).pluck(:email)
   end
 
   def new
