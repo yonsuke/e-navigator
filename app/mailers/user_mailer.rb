@@ -7,9 +7,7 @@ class UserMailer < ApplicationMailer
     mail(
       to: to_email,
       subject: '面談日時を承認してください'
-    ) do |format|
-      format.html
-    end
+    )
   end
 
   def approve_interview(to_user, from_user)
@@ -20,8 +18,6 @@ class UserMailer < ApplicationMailer
     mail(
       to: [to_user.email, from_user.email],
       subject: '面談日時が確定しました'
-    ) do |format|
-      format.html
-    end
+    )
   end
 end
