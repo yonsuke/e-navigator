@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%= @to_user.name %>さんの面談時間が<%= @from_user.name %>さんによって、以下の内容で承認されました。</p>
+    <p><%= interview_datetime(@interview.start_time) %></p>
+    <p>
+      場所は、株式会社フィードフォースで行います。<br/>
+      今後の連絡は担当人事の方から再度連絡させていただきます。
+    </p>
+    <p>よろしくお願いします。</p>
+  </body>
+</html>

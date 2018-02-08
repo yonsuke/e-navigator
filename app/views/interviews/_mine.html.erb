@@ -17,6 +17,10 @@
 
 <div class="row">
   <div class="col-sm-10">
+    <%= form_tag user_request_interview_path do %>
+      <%= select_tag :email, options_for_select(@users_emails) %>
+      <%= button_tag '申請', class: "btn btn-primary" %>
+    <% end %>
   </div>
   <div class="col-sm-2">
     <%= button_to '候補日追加', new_user_interview_path, method: :get, class: "btn btn-primary" %>

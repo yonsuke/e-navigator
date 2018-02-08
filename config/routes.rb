@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :users, only: :index do
     resources :interviews
+    post '/request_interview',   to: 'interviews#request_interview'
   end
 end

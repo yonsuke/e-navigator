@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <% url = user_interviews_url(@from_user.id) %>
+
+    <p><%= @from_user.name %>さんの面談希望日が決定しました。</p>
+    <p>以下のURLから、面談日時の承認をお願いします。</p>
+    <p><%= link_to url, url %></p>
+  </body>
+</html>

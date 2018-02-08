@@ -4,6 +4,7 @@ class InterviewsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @interviews = @user.interviews
+    @users_emails = User.where.not(id: current_user.id).order(:id).pluck(:email)
   end
 
   def new
@@ -37,6 +38,7 @@ class InterviewsController < ApplicationController
     else
       interviews = Interview.where(user_id: user_id).update_all(status: :rejected)
       @interview.approved!
+      UserMailer.approve_interview(User.find(user_id), current_user).deliver
       flash.now[:notice] = "面談日を設定しました"
       render 'show'
     end
@@ -45,6 +47,12 @@ class InterviewsController < ApplicationController
   def destroy
     Interview.find(params[:id]).destroy
     flash[:notice] = "面談候補日を削除しました"
+    redirect_to user_interviews_path
+  end
+
+  def request_interview
+    UserMailer.request_interview(params[:email], current_user).deliver
+    flash[:notice] = "申請が完了しました"
     redirect_to user_interviews_path
   end
 
