@@ -10,7 +10,7 @@
 <% if not_approved_interviews.any? %>
   <p>面談日程を変更する場合は以下から選んでください。</p>
   <% not_approved_interviews.each do |interview| %>
-    <%= button_to interview_datetime(interview.start_time), user_interview_path(interview.user_id, interview.id), method: :patch, class: "btn btn-primary", data: { confirm: "#{interview_datetime(interview.start_time)}で面談を確定してよろしいですか？" } %>
+    <%= button_to interview_datetime(interview.start_time), user_interview_path(interview.user_id, interview.id), method: :patch, class: "btn btn-primary", data: { confirm: "#{interview_datetime(interview.start_time)}で面談を確定してよろしいですか？" }, disabled: interview.start_time.past? %>
     <br />
   <% end %>
 <% else %>
